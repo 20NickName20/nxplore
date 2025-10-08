@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/Nxplore.dir/link.d CMakeFiles/Nxplore.dir/src/main.cpp.o -o Nxplore  -lcurses -lform
