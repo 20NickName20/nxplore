@@ -1,3 +1,0 @@
-/home/nickname/programming/cpp/nxplore/build/CMakeFiles/Nxplore.dir
-/home/nickname/programming/cpp/nxplore/build/CMakeFiles/edit_cache.dir
-/home/nickname/programming/cpp/nxplore/build/CMakeFiles/rebuild_cache.dir
