@@ -1,5 +1,8 @@
 #include <vector>
 #include "map.h"
+#include "map_types.h"
+#include "map_types.cpp"
+#include "map_gen.cpp"
 #include "tiles/tiles.h"
 #include "tiles/tiles.cpp"
 #include "entities/entities.h"
@@ -8,11 +11,14 @@
 
 namespace Maps {
 
-Map::Map(int width, int height)
-    : width(width), height(height), tiles(width * height) {
+Map createMap(Types::Type type) {
+    Vec2 size = Types::getSize(type);
+    Map map(size.x, size.y, type);
+    return map;
 }
-Map::Map(int width, int height, const Tiles::TileKind& t)
-    : width(width), height(height), tiles(width * height, Tiles::Tile{t}) {
+
+Map::Map(int width, int height, Types::Type type)
+    : width(width), height(height), tiles(width * height), type(type) {
 }
 
 int Map::nextEntityId() {
@@ -95,43 +101,7 @@ void Map::fill(const Tiles::TileKind& t, int x, int y, int w, int h) {
 }
 
 Vec2 Map::generate(std::optional<Vec2> returnPos, std::optional<Tiles::TileKind> returnType) {
-    fill(Tiles::TileKind::Wall);
-    std::vector<Vec2> spawnPositions;
-    spawnPositions.reserve(width * height);
-    for (int x = 1; x < width - 1; x++) {
-        for (int y = 1; y < height - 1; y++) {
-            Vec2 pos = Vec2(x, y);
-            Tiles::Tile& tile = at(x, y);
-            
-            Vec2 rounded = Vec2(x / 8 * 8 + 4, y / 8 * 8 + 4);
-            int dist = (pos - rounded).smallestSquare();
-            
-            if (dist < 2) {
-                tile.kind = Tiles::TileKind::Pit;
-                continue;
-            }
-            if (dist < (3 + (x + y) % 3)) {
-                tile.kind = Tiles::TileKind::Sand;
-                continue;
-            }
-
-            if (rand() % 20 == 0) {
-                spawnEntity(Entities::EntityKind::Skeleton, pos, 40);
-            }
-
-            spawnPositions.push_back(pos);
-
-            tile.kind = Tiles::TileKind::Floor;
-        }
-    }
-    
-    int spawnOptions = spawnPositions.size();
-    if (!spawnOptions) {
-        return Vec2();
-    }
-
-    Vec2 spawnPos = spawnPositions[rand() % spawnOptions];
-    return Vec2(spawnPos.x, spawnPos.y);
+    return Maps::Gen::generate(this, returnPos, returnType);
 }
 
 } // namespace Maps

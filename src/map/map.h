@@ -2,6 +2,7 @@
 #include <vector>
 #include <unordered_map>
 #include <optional>
+#include "map_types.h"
 #include "tiles/tiles.h"
 #include "entities/entities.h"
 #include "../util/vec2.h"
@@ -10,13 +11,12 @@ namespace Maps {
 
 class Map {
 public:
-    Map(int width, int height);
-
-    Map(int width, int height, const Tiles::TileKind &t);
+    Map(int width, int height, Types::Type type);
 
     // Basic accessors
     int getWidth() const { return width; }
     int getHeight() const { return height; }
+    Types::Type getType() const { return type; }
 
     // Tile access
     Tiles::Tile& at(int x, int y);
@@ -40,6 +40,7 @@ public:
 private:
     int width;
     int height;
+    Types::Type type;
     int entityIdCounter = 1;
 
     std::vector<Tiles::Tile> tiles;

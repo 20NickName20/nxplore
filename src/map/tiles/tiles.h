@@ -5,19 +5,30 @@
 namespace Tiles {
 
 enum class TileKind {
-    Wall,
+    None,
+
+    Grass,
     Floor,
+    Sand,
+    
     Door,
+
+    BrickWall,
+    BrickFloor,
+    
+    RockWall,
+    RockFloor,
+    
     StairsUp,
     StairsDown,
-    Grass,
+    
     Pit,
-    Rock,
     Water,
     Lava,
+
+    Rock,
     Tree,
-    Ice,
-    Sand
+    Ice
 };
 
 struct Tile {

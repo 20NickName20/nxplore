@@ -22,7 +22,10 @@
 #include "map/map.cpp"
 
 int main() {
-    Maps::Map map(100, 50, Tiles::TileKind::Wall);
+    srand(time(nullptr));
+
+    Maps::Types::Type mapType = Maps::Types::Type::RockCave;
+    Maps::Map map = Maps::createMap(mapType);
     Vec2 spawnPos = map.generate(std::nullopt, std::nullopt);
     
     auto& player = map.spawnEntity(Entities::EntityKind::Player, spawnPos, 100);
