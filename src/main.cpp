@@ -24,7 +24,7 @@
 int main() {
     srand(time(nullptr));
 
-    Maps::Types::Type mapType = Maps::Types::Type::RockCave;
+    Maps::Types::Type mapType = Maps::Types::Type::IceCave;
     Maps::Map map = Maps::createMap(mapType);
     Vec2 spawnPos = map.generate(std::nullopt, std::nullopt);
     

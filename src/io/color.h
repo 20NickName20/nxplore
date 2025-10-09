@@ -33,7 +33,7 @@ constexpr std::array<ColorDef, 5> CUSTOM_COLORS {{
     ColorDef{COLOR_DARK_BROWN, {367, 187, 46}},
 }};
 
-constexpr std::array<Pair, 12> PAIRS {{
+constexpr std::array<Pair, 14> PAIRS {{
     {1, COLOR_RED, COLOR_BLACK},
     {2, COLOR_GREEN, COLOR_BLACK},
     {3, COLOR_WHITE, COLOR_BLUE},
@@ -46,6 +46,8 @@ constexpr std::array<Pair, 12> PAIRS {{
     {10, COLOR_DARK_BROWN, COLOR_BLACK},
     {11, COLOR_YELLOW, COLOR_BLACK},
     {12, COLOR_DARK_DARK_GRAY, COLOR_DARK_GRAY},
+    {13, COLOR_CYAN, COLOR_BLACK},
+    {14, COLOR_WHITE, COLOR_CYAN},
 }};
 
 // Lookup function (constexpr)

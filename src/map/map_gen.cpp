@@ -79,7 +79,9 @@ Vec2 generate(Map* map, std::optional<Vec2> returnPos, std::optional<Tiles::Tile
     switch (map->getType())
     {
     case Types::Type::RockCave:
-        return generateCave(map, returnPos, returnType, Tiles::TileKind::RockWall, Tiles::TileKind::RockFloor, 2, 4);
+        return generateCave(map, returnPos, returnType, Tiles::TileKind::RockWall, Tiles::TileKind::RockFloor, 1, 4);
+    case Types::Type::IceCave:
+        return generateCave(map, returnPos, returnType, Tiles::TileKind::IceWall, Tiles::TileKind::Snow, 1, 4);
     
     default:
         return Vec2();

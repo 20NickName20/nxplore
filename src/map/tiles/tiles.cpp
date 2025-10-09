@@ -13,7 +13,7 @@ struct TileInfo {
     bool basePassable;
 };
 
-constexpr std::array<TileInfo, 18> TILE_DEFS{{
+constexpr std::array<TileInfo, 19> TILE_DEFS {{
     { TileKind::None, "  ", Color::defaultPair(), false },
 
     { TileKind::Floor, "  ", Color::defaultPair(), true },
@@ -25,6 +25,10 @@ constexpr std::array<TileInfo, 18> TILE_DEFS{{
     
     { TileKind::RockWall, "//", Color::pairId(COLOR_WHITE, COLOR_LIGHT_BROWN), false },
     { TileKind::RockFloor, " ,", Color::pairId(COLOR_DARK_BROWN, COLOR_BLACK), true },
+
+    { TileKind::Ice, "/]", Color::pairId(COLOR_CYAN, COLOR_BLACK), false },
+    { TileKind::IceWall, "/]", Color::pairId(COLOR_WHITE, COLOR_CYAN), false },
+    { TileKind::Snow, ".,", Color::defaultPair(), true },
     
     { TileKind::Door, " +", Color::defaultPair(), true },
 
@@ -32,7 +36,6 @@ constexpr std::array<TileInfo, 18> TILE_DEFS{{
     { TileKind::Lava, "/~", Color::pairId(COLOR_WHITE, COLOR_RED), false },
 
     { TileKind::Tree, " 4", Color::pairId(COLOR_GREEN, COLOR_BLACK), false },
-    { TileKind::Ice, "/]", Color::pairId(COLOR_BLUE, COLOR_BLACK), false },
     { TileKind::Rock, " O", Color::pairId(COLOR_LIGHT_BROWN, COLOR_BLACK), false },
     { TileKind::Pit, " v", Color::pairId(COLOR_DARK_DARK_GRAY, COLOR_DARK_GRAY), false },
     

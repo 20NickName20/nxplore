@@ -18,6 +18,10 @@ enum class TileKind {
     
     RockWall,
     RockFloor,
+
+    Ice,
+    IceWall,
+    Snow,
     
     StairsUp,
     StairsDown,
@@ -27,8 +31,7 @@ enum class TileKind {
     Lava,
 
     Rock,
-    Tree,
-    Ice
+    Tree
 };
 
 struct Tile {
